@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service Commands {
+    rpc Access (CommandRequest) returns (CommandReply);
+    rpc Add (CommandRequest) returns (CommandReply);
+    rpc Remove (CommandRequest) returns (CommandReply);
+    rpc Get (CommandRequest) returns (CommandReply);
+    rpc List (CommandRequest) returns (CommandReply);
+    rpc Mkdir (CommandRequest) returns (CommandReply);
+    rpc Rmdir (CommandRequest) returns (CommandReply);
+}
+
+message CommandRequest {
+  string parameter = 1;
+}
+
+message CommandReply {
+  string message = 1;
+}
