@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service CommandsWork {
+    rpc Get (CommandRequestWork) returns (CommandReplyWork);
+    rpc Put (CommandRequestWork) returns (CommandReplyWork);
+    rpc Remove (CommandRequestWork) returns (CommandReplyWork);
+    rpc GetInfo (CommandRequestWork) returns (CommandReplyWork);
+}
+
+message CommandRequestWork {
+  string parameter = 1;
+}
+
+message CommandReplyWork {
+  string message = 1;
+}
