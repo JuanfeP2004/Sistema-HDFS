@@ -5,6 +5,8 @@ service CommandsWork {
     rpc Put (CommandRequestWork) returns (CommandReplyWork);
     rpc Remove (CommandRequestWork) returns (CommandReplyWork);
     rpc GetInfo (CommandRequestWork) returns (CommandReplyWork);
+    rpc ReplicatePut (CommandRequestWork) returns (CommandReplyWork);
+    rpc ReplicateRemove (CommandRequestWork) returns (CommandReplyWork);
 }
 
 message CommandRequestWork {

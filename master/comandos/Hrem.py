@@ -3,7 +3,7 @@ import subprocess
 
 def hrem (ruta):
     if str.find(ruta, '..') != -1:
-        return '.. no esta soportado'
+        return 'Error: .. no esta soportado'
     else:
 
         if os.path.exists('../carpeta/' + ruta + '.info'):
@@ -13,7 +13,7 @@ def hrem (ruta):
             process_ht = subprocess.run(['cat', '../nodos/nodes'], capture_output=True, text=True)
 
             if(process_oj.stdout == 'None' or process_ht.stdout == 'None'):
-                return 'Ocurrio un error'
+                return 'Error: Ocurrio un error'
             else:
 
                 object_vector = process_oj.stdout.split('\n')
@@ -24,15 +24,17 @@ def hrem (ruta):
                 indexR = list.index(object_vector, 'REPLICATE')
                 info = ''
 
+                info += 'ORIGINAL\n'
                 for i in range(n):
                     if(object_vector[indexO + i + 1].split(' ')[0] not in active_nodes):
-                        return 'No se puede borrar el archivo'
+                        return 'Error: No se puede borrar el archivo'
                 
                     info += object_vector[indexO + i + 1] + '\n'
 
+                info += 'REPLICATE\n'
                 for i in range(n):
                     if(object_vector[indexR + i + 1].split(' ')[0] not in active_nodes):
-                        return 'No se puede borrar el archivo'
+                        return 'Error: No se puede borrar el archivo'
 
                     if(i == n-1):
                         info += object_vector[indexR + i + 1]
@@ -46,7 +48,7 @@ def hrem (ruta):
                 return info #YA
 
         else:
-            return "La ruta no existe"
+            return "Error: La ruta no existe"
         
 def updateHosts(info):
     process_par = subprocess.run(['cat', '../nodos/nodes_par'], capture_output=True, text=True)

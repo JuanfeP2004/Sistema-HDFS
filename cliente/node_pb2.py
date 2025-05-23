@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nnode.proto\"\'\n\x12\x43ommandRequestWork\x12\x11\n\tparameter\x18\x01 \x01(\t\"#\n\x10\x43ommandReplyWork\x12\x0f\n\x07message\x18\x01 \x01(\t2\xd1\x01\n\x0c\x43ommandsWork\x12-\n\x03Get\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12-\n\x03Put\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12\x30\n\x06Remove\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12\x31\n\x07GetInfo\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWorkb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nnode.proto\"\'\n\x12\x43ommandRequestWork\x12\x11\n\tparameter\x18\x01 \x01(\t\"#\n\x10\x43ommandReplyWork\x12\x0f\n\x07message\x18\x01 \x01(\t2\x86\x02\n\x0c\x43ommandsWork\x12-\n\x03Get\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12-\n\x03Put\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12\x30\n\x06Remove\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12\x31\n\x07GetInfo\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWork\x12\x33\n\tReplicate\x12\x13.CommandRequestWork\x1a\x11.CommandReplyWorkb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,5 +36,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_COMMANDREPLYWORK']._serialized_start=55
   _globals['_COMMANDREPLYWORK']._serialized_end=90
   _globals['_COMMANDSWORK']._serialized_start=93
-  _globals['_COMMANDSWORK']._serialized_end=302
+  _globals['_COMMANDSWORK']._serialized_end=355
 # @@protoc_insertion_point(module_scope)

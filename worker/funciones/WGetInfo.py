@@ -3,7 +3,7 @@ import subprocess
 
 def GetInfo():
 
-    texto = ''
+    texto = '' #Falta la IP 10.0.0.5 10.0.0.7 10.0.0.9
     particiones = subprocess.run(['ls', '../node/'], capture_output=True, text=True).stdout
 
     for particion in str.split(particiones):

@@ -25,7 +25,7 @@ if _version_not_supported:
     )
 
 
-class CommandsWorkStub(object):
+class CommandsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -35,33 +35,28 @@ class CommandsWorkStub(object):
             channel: A grpc.Channel.
         """
         self.Get = channel.unary_unary(
-                '/CommandsWork/Get',
-                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
-                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                '/Commands/Get',
+                request_serializer=node__pb2.CommandRequest.SerializeToString,
+                response_deserializer=node__pb2.CommandReply.FromString,
                 _registered_method=True)
         self.Put = channel.unary_unary(
-                '/CommandsWork/Put',
-                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
-                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                '/Commands/Put',
+                request_serializer=node__pb2.CommandRequest.SerializeToString,
+                response_deserializer=node__pb2.CommandReply.FromString,
                 _registered_method=True)
         self.Remove = channel.unary_unary(
-                '/CommandsWork/Remove',
-                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
-                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                '/Commands/Remove',
+                request_serializer=node__pb2.CommandRequest.SerializeToString,
+                response_deserializer=node__pb2.CommandReply.FromString,
                 _registered_method=True)
         self.GetInfo = channel.unary_unary(
-                '/CommandsWork/GetInfo',
-                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
-                response_deserializer=node__pb2.CommandReplyWork.FromString,
-                _registered_method=True)
-        self.Replicate = channel.unary_unary(
-                '/CommandsWork/Replicate',
-                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
-                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                '/Commands/GetInfo',
+                request_serializer=node__pb2.CommandRequest.SerializeToString,
+                response_deserializer=node__pb2.CommandReply.FromString,
                 _registered_method=True)
 
 
-class CommandsWorkServicer(object):
+class CommandsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Get(self, request, context):
@@ -88,49 +83,38 @@ class CommandsWorkServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Replicate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
 
-
-def add_CommandsWorkServicer_to_server(servicer, server):
+def add_CommandsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Get': grpc.unary_unary_rpc_method_handler(
                     servicer.Get,
-                    request_deserializer=node__pb2.CommandRequestWork.FromString,
-                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+                    request_deserializer=node__pb2.CommandRequest.FromString,
+                    response_serializer=node__pb2.CommandReply.SerializeToString,
             ),
             'Put': grpc.unary_unary_rpc_method_handler(
                     servicer.Put,
-                    request_deserializer=node__pb2.CommandRequestWork.FromString,
-                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+                    request_deserializer=node__pb2.CommandRequest.FromString,
+                    response_serializer=node__pb2.CommandReply.SerializeToString,
             ),
             'Remove': grpc.unary_unary_rpc_method_handler(
                     servicer.Remove,
-                    request_deserializer=node__pb2.CommandRequestWork.FromString,
-                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+                    request_deserializer=node__pb2.CommandRequest.FromString,
+                    response_serializer=node__pb2.CommandReply.SerializeToString,
             ),
             'GetInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInfo,
-                    request_deserializer=node__pb2.CommandRequestWork.FromString,
-                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
-            ),
-            'Replicate': grpc.unary_unary_rpc_method_handler(
-                    servicer.Replicate,
-                    request_deserializer=node__pb2.CommandRequestWork.FromString,
-                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+                    request_deserializer=node__pb2.CommandRequest.FromString,
+                    response_serializer=node__pb2.CommandReply.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'CommandsWork', rpc_method_handlers)
+            'Commands', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('CommandsWork', rpc_method_handlers)
+    server.add_registered_method_handlers('Commands', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class CommandsWork(object):
+class Commands(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -147,9 +131,9 @@ class CommandsWork(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/CommandsWork/Get',
-            node__pb2.CommandRequestWork.SerializeToString,
-            node__pb2.CommandReplyWork.FromString,
+            '/Commands/Get',
+            node__pb2.CommandRequest.SerializeToString,
+            node__pb2.CommandReply.FromString,
             options,
             channel_credentials,
             insecure,
@@ -174,9 +158,9 @@ class CommandsWork(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/CommandsWork/Put',
-            node__pb2.CommandRequestWork.SerializeToString,
-            node__pb2.CommandReplyWork.FromString,
+            '/Commands/Put',
+            node__pb2.CommandRequest.SerializeToString,
+            node__pb2.CommandReply.FromString,
             options,
             channel_credentials,
             insecure,
@@ -201,9 +185,9 @@ class CommandsWork(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/CommandsWork/Remove',
-            node__pb2.CommandRequestWork.SerializeToString,
-            node__pb2.CommandReplyWork.FromString,
+            '/Commands/Remove',
+            node__pb2.CommandRequest.SerializeToString,
+            node__pb2.CommandReply.FromString,
             options,
             channel_credentials,
             insecure,
@@ -228,36 +212,9 @@ class CommandsWork(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/CommandsWork/GetInfo',
-            node__pb2.CommandRequestWork.SerializeToString,
-            node__pb2.CommandReplyWork.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def Replicate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/CommandsWork/Replicate',
-            node__pb2.CommandRequestWork.SerializeToString,
-            node__pb2.CommandReplyWork.FromString,
+            '/Commands/GetInfo',
+            node__pb2.CommandRequest.SerializeToString,
+            node__pb2.CommandReply.FromString,
             options,
             channel_credentials,
             insecure,

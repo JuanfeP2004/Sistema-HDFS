@@ -5,14 +5,14 @@ import subprocess
 def hget(ruta):
 
     if str.find(ruta, '..') != -1:
-        return '.. no esta soportado'
+        return 'Error: .. no esta soportado'
     else:
         process_oj = subprocess.run(['cat', '../carpeta/' + ruta + '.info'], capture_output=True, text=True)
         ###
         process_ht = subprocess.run(['cat', '../nodos/nodes'], capture_output=True, text=True)
 
         if(process_oj.stdout == 'None' or process_ht.stdout == 'None'):
-            return 'Ocurrio un error'
+            return 'Error: Ocurrio un error'
         else:
 
             object_vector = process_oj.stdout.split('\n')
@@ -44,4 +44,4 @@ def hget(ruta):
                 else:
                     info += object_vector[indexR + i + 1] + '\n'
 
-            return 'No se puede acceder al archivo =('
+            return 'Error: No se puede acceder al archivo =('

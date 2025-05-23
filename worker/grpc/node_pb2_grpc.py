@@ -54,6 +54,16 @@ class CommandsWorkStub(object):
                 request_serializer=node__pb2.CommandRequestWork.SerializeToString,
                 response_deserializer=node__pb2.CommandReplyWork.FromString,
                 _registered_method=True)
+        self.ReplicatePut = channel.unary_unary(
+                '/CommandsWork/ReplicatePut',
+                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
+                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                _registered_method=True)
+        self.ReplicateRemove = channel.unary_unary(
+                '/CommandsWork/ReplicateRemove',
+                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
+                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                _registered_method=True)
 
 
 class CommandsWorkServicer(object):
@@ -83,6 +93,18 @@ class CommandsWorkServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ReplicatePut(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReplicateRemove(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CommandsWorkServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -103,6 +125,16 @@ def add_CommandsWorkServicer_to_server(servicer, server):
             ),
             'GetInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInfo,
+                    request_deserializer=node__pb2.CommandRequestWork.FromString,
+                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+            ),
+            'ReplicatePut': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplicatePut,
+                    request_deserializer=node__pb2.CommandRequestWork.FromString,
+                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+            ),
+            'ReplicateRemove': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplicateRemove,
                     request_deserializer=node__pb2.CommandRequestWork.FromString,
                     response_serializer=node__pb2.CommandReplyWork.SerializeToString,
             ),
@@ -213,6 +245,60 @@ class CommandsWork(object):
             request,
             target,
             '/CommandsWork/GetInfo',
+            node__pb2.CommandRequestWork.SerializeToString,
+            node__pb2.CommandReplyWork.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ReplicatePut(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/CommandsWork/ReplicatePut',
+            node__pb2.CommandRequestWork.SerializeToString,
+            node__pb2.CommandReplyWork.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ReplicateRemove(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/CommandsWork/ReplicateRemove',
             node__pb2.CommandRequestWork.SerializeToString,
             node__pb2.CommandReplyWork.FromString,
             options,

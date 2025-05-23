@@ -54,8 +54,13 @@ class CommandsWorkStub(object):
                 request_serializer=node__pb2.CommandRequestWork.SerializeToString,
                 response_deserializer=node__pb2.CommandReplyWork.FromString,
                 _registered_method=True)
-        self.Replicate = channel.unary_unary(
-                '/CommandsWork/Replicate',
+        self.ReplicatePut = channel.unary_unary(
+                '/CommandsWork/ReplicatePut',
+                request_serializer=node__pb2.CommandRequestWork.SerializeToString,
+                response_deserializer=node__pb2.CommandReplyWork.FromString,
+                _registered_method=True)
+        self.ReloicateRemove = channel.unary_unary(
+                '/CommandsWork/ReloicateRemove',
                 request_serializer=node__pb2.CommandRequestWork.SerializeToString,
                 response_deserializer=node__pb2.CommandReplyWork.FromString,
                 _registered_method=True)
@@ -88,7 +93,13 @@ class CommandsWorkServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Replicate(self, request, context):
+    def ReplicatePut(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReloicateRemove(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -117,8 +128,13 @@ def add_CommandsWorkServicer_to_server(servicer, server):
                     request_deserializer=node__pb2.CommandRequestWork.FromString,
                     response_serializer=node__pb2.CommandReplyWork.SerializeToString,
             ),
-            'Replicate': grpc.unary_unary_rpc_method_handler(
-                    servicer.Replicate,
+            'ReplicatePut': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplicatePut,
+                    request_deserializer=node__pb2.CommandRequestWork.FromString,
+                    response_serializer=node__pb2.CommandReplyWork.SerializeToString,
+            ),
+            'ReloicateRemove': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReloicateRemove,
                     request_deserializer=node__pb2.CommandRequestWork.FromString,
                     response_serializer=node__pb2.CommandReplyWork.SerializeToString,
             ),
@@ -242,7 +258,7 @@ class CommandsWork(object):
             _registered_method=True)
 
     @staticmethod
-    def Replicate(request,
+    def ReplicatePut(request,
             target,
             options=(),
             channel_credentials=None,
@@ -255,7 +271,34 @@ class CommandsWork(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/CommandsWork/Replicate',
+            '/CommandsWork/ReplicatePut',
+            node__pb2.CommandRequestWork.SerializeToString,
+            node__pb2.CommandReplyWork.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ReloicateRemove(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/CommandsWork/ReloicateRemove',
             node__pb2.CommandRequestWork.SerializeToString,
             node__pb2.CommandReplyWork.FromString,
             options,

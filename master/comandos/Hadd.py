@@ -10,7 +10,7 @@ partition = 256
 def hadd(ruta):
 
     if str.find(ruta, '..') != -1:
-        return '.. no esta soportado'
+        return 'Error: .. no esta soportado'
 
     auxiliar = str.split(ruta, '?')
     tamanio = int(auxiliar[1])
@@ -22,16 +22,16 @@ def hadd(ruta):
     nombre = str.split(archivo, '.')[0]
 
     if not os.path.exists('../carpeta/' + str.split(ubicacion, archivo)[0] + "/"):
-        return 'la ruta no existe'
+        return 'Error: la ruta no existe'
     
     if os.path.exists('../carpeta/' + ubicacion + '.info'): ####
-        return 'el archivo ya existe'
+        return 'Error: el archivo ya existe'
 
     process_ht = subprocess.run(['cat', '../nodos/nodes'], capture_output=True, text=True)
     process_par = subprocess.run(['cat', '../nodos/nodes_par'], capture_output=True, text=True)
 
     if(process_ht.stdout == 'None' or process_par.stdout == 'None'):
-        return 'Ocurrio un error'
+        return 'Error: Ocurrio un error'
 
     hosts = str.split(process_par.stdout, '\n')
     number_p = math.ceil(tamanio / partition)
@@ -52,7 +52,7 @@ def hadd(ruta):
         host = findLessBusy(hosts)
 
         if (len(host) == 0):
-            return 'El archivo es muy grande para guardarlo'
+            return 'Error: El archivo es muy grande para guardarlo'
         
         used_host.append(host[0])
         new_host = host.copy()
@@ -94,7 +94,7 @@ def hadd(ruta):
         host = findLessBusy(remaining_hosts)
 
         if (len(host) == 0):
-            return 'No hay espacio para replicar el archivo'
+            return 'Error: No hay espacio para replicar el archivo'
         
         #used_host.append(host[0])
         new_host = host.copy()
